@@ -1,9 +1,7 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas.product.entity;
-
-import java.util.Date;
+package com.esuper.tsas.seller.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,22 +11,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import com.esuper.tsas.seller.entity.ShopProducts;
+import com.esuper.tsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
- * 销售价
+ * 产品和店铺的关联关系管理
  * 
  * @author liaozc@digione.com
- * @date 2013-4-16
+ * @date 2013-4-25
  */
 @Entity
-public class SalePrice extends BaseEntity {
+public class ShopProducts extends BaseEntity {
 	
-	private static final long serialVersionUID = 1658908915553856095L;
+	private static final long serialVersionUID = 590828729595967981L;
 	
 	/**
 	 * 主键
@@ -36,19 +32,24 @@ public class SalePrice extends BaseEntity {
 	private Long id;
 	
 	/**
-	 * 店铺产品
+	 * 店铺
 	 */
-	private ShopProducts shopProduct;
+	private Shop shop;
 	
 	/**
-	 * 价格，销售价格
+	 * 产品
 	 */
-	private Double price;
+	private Product product;
 	
 	/**
-	 * 开始时间，以这个价格销售的开始时间
+	 * 销售价格
 	 */
-	private Date beginTime;
+	private Double salePrice;
+	
+	/**
+	 * 商家编码
+	 */
+	private String sellerProudctNo;
 	
 	
 	@Id
@@ -64,37 +65,49 @@ public class SalePrice extends BaseEntity {
 	}
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "spId")
-	public ShopProducts getShopProduct() {
-		return shopProduct;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "shopId")
+	public Shop getShop() {
+		return shop;
 	}
 	
 	
-	public void setShopProduct(ShopProducts shopProduct) {
-		this.shopProduct = shopProduct;
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 	
 	
-	@Column(length = 6, precision = 2)
-	public Double getPrice() {
-		return price;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "productId")
+	public Product getProduct() {
+		return product;
 	}
 	
 	
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date getBeginTime() {
-		return beginTime;
+	@Column(length = 8, precision = 2, nullable = false)
+	public Double getSalePrice() {
+		return salePrice;
 	}
 	
 	
-	public void setBeginTime(Date beginTime) {
-		this.beginTime = beginTime;
+	public void setSalePrice(Double salePrice) {
+		this.salePrice = salePrice;
+	}
+	
+	
+	@Column(length = 20, nullable = false)
+	public String getSellerProudctNo() {
+		return sellerProudctNo;
+	}
+	
+	
+	public void setSellerProudctNo(String sellerProudctNo) {
+		this.sellerProudctNo = sellerProudctNo;
 	}
 	
 	
@@ -115,7 +128,7 @@ public class SalePrice extends BaseEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SalePrice other = (SalePrice) obj;
+		ShopProducts other = (ShopProducts) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

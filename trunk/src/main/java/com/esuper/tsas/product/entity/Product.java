@@ -17,7 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import com.esuper.tsas.agent.entity.Agent;
-import com.esuper.tsas.seller.entity.Shop;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
@@ -47,6 +46,16 @@ public class Product extends BaseEntity {
 	private String productName;
 	
 	/**
+	 * 产品商家编号，该编号为主店铺的商家编码
+	 */
+	private String productSellerNo;
+	
+	/**
+	 * 产品编号，该编号为当前产品在主供应商处的编号
+	 */
+	private String productNo;
+	
+	/**
 	 * 产品主图路径
 	 */
 	private String mainPhotoLocation;
@@ -70,11 +79,6 @@ public class Product extends BaseEntity {
 	 * 一个产品，可以由多个供应商供货
 	 */
 	private Set<Agent> agents = new HashSet<Agent>();
-	
-	/**
-	 * 产品上架的店铺，一个产品可以在多个店铺上架；产品和店铺是个多对多的关系
-	 */
-	private Set<Shop> inStockShops = new HashSet<Shop>();
 	
 	
 	@Id
@@ -109,6 +113,28 @@ public class Product extends BaseEntity {
 	
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	
+	
+	@Column(length = 20)
+	public String getProductSellerNo() {
+		return productSellerNo;
+	}
+	
+	
+	public void setProductSellerNo(String productSellerNo) {
+		this.productSellerNo = productSellerNo;
+	}
+	
+	
+	@Column(length = 20)
+	public String getProductNo() {
+		return productNo;
+	}
+	
+	
+	public void setProductNo(String productNo) {
+		this.productNo = productNo;
 	}
 	
 	
@@ -165,17 +191,6 @@ public class Product extends BaseEntity {
 	
 	public void setAgents(Set<Agent> agents) {
 		this.agents = agents;
-	}
-	
-	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "products")
-	public Set<Shop> getInStockShops() {
-		return inStockShops;
-	}
-	
-	
-	public void setInStockShops(Set<Shop> inStockShops) {
-		this.inStockShops = inStockShops;
 	}
 	
 	
