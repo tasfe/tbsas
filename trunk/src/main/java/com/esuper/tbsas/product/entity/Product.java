@@ -149,7 +149,7 @@ public class Product extends BaseEntity {
 	}
 	
 	
-	@Column(length = 8, precision = 2)
+	@Column(precision = 8, scale = 2)
 	public Double getSalePrice() {
 		return salePrice;
 	}
@@ -160,7 +160,7 @@ public class Product extends BaseEntity {
 	}
 	
 	
-	@Column(length = 8, precision = 2)
+	@Column(precision = 8, scale = 2)
 	public Double getCostPrcie() {
 		return costPrcie;
 	}
