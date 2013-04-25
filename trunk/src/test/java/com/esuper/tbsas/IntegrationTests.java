@@ -1,7 +1,7 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas;
+package com.esuper.tbsas;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

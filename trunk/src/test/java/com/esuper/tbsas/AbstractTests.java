@@ -1,7 +1,7 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas;
+package com.esuper.tbsas;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

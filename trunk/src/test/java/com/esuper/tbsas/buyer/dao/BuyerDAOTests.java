@@ -1,7 +1,7 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas.buyer.dao;
+package com.esuper.tbsas.buyer.dao;
 
 import javax.annotation.Resource;
 
@@ -9,7 +9,8 @@ import org.junit.Test;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.esuper.tsas.AbstractTests;
+import com.esuper.tbsas.AbstractTests;
+import com.esuper.tsas.buyer.dao.BuyerDAO;
 import com.esuper.tsas.buyer.entity.Buyer;
 import com.jqd.framework.core.exception.DAOException;
 
