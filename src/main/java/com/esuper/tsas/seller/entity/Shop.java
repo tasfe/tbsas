@@ -3,9 +3,6 @@
  */
 package com.esuper.tsas.seller.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,11 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.esuper.tsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
@@ -67,11 +61,6 @@ public class Shop extends BaseEntity {
 	 * 该店铺对应的卖家
 	 */
 	private Seller seller;
-	
-	/**
-	 * 店铺所有的产品（包括上架下架）
-	 */
-	private Set<Product> products = new HashSet<Product>();
 	
 	
 	@Id
@@ -152,18 +141,6 @@ public class Shop extends BaseEntity {
 	
 	public void setSeller(Seller seller) {
 		this.seller = seller;
-	}
-	
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "shop_product", joinColumns = @JoinColumn(name = "shopId"), inverseJoinColumns = @JoinColumn(name = "productId"))
-	public Set<Product> getProducts() {
-		return products;
-	}
-	
-	
-	public void setProducts(Set<Product> products) {
-		this.products = products;
 	}
 	
 	
