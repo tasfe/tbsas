@@ -5,8 +5,8 @@ package com.esuper.tbsas.buyer.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.esuper.tsas.buyer.dao.BuyerDAO;
-import com.esuper.tsas.commons.dao.AbstractBaseRepositorySupport;
+import com.esuper.tbsas.buyer.dao.BuyerDAO;
+import com.esuper.tbsas.commons.dao.AbstractBaseRepositorySupport;
 
 /**
  * TODO

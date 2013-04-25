@@ -3,8 +3,8 @@
  */
 package com.esuper.tbsas.agent.dao.impl;
 
-import com.esuper.tsas.agent.dao.AgentDAO;
-import com.esuper.tsas.commons.dao.AbstractBaseRepositorySupport;
+import com.esuper.tbsas.agent.dao.AgentDAO;
+import com.esuper.tbsas.commons.dao.AbstractBaseRepositorySupport;
 
 /**
  * TODO

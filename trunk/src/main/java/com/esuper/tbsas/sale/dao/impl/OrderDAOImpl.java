@@ -3,8 +3,8 @@
  */
 package com.esuper.tbsas.sale.dao.impl;
 
-import com.esuper.tsas.commons.dao.AbstractBaseRepositorySupport;
-import com.esuper.tsas.sale.dao.OrderDAO;
+import com.esuper.tbsas.commons.dao.AbstractBaseRepositorySupport;
+import com.esuper.tbsas.sale.dao.OrderDAO;
 
 /**
  * TODO

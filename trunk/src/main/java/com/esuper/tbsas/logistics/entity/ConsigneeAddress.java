@@ -9,7 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.esuper.tsas.buyer.entity.Buyer;
+import com.esuper.tbsas.buyer.entity.Buyer;
 
 /**
  * 收货地址

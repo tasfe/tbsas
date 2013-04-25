@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.esuper.tsas.product.entity.Product;
+import com.esuper.tbsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

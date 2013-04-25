@@ -5,7 +5,7 @@ package com.esuper.tbsas.agent.entity;
 
 import javax.persistence.Entity;
 
-import com.esuper.tsas.product.entity.Product;
+import com.esuper.tbsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
