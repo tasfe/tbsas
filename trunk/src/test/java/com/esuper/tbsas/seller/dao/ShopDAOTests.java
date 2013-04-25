@@ -8,10 +8,9 @@ import javax.annotation.Resource;
 import org.junit.Test;
 
 import com.esuper.tbsas.AbstractTests;
-import com.esuper.tsas.seller.dao.ShopDAO;
-import com.esuper.tsas.seller.entity.Seller;
-import com.esuper.tsas.seller.entity.Shop;
-import com.esuper.tsas.seller.entity.ShopType;
+import com.esuper.tbsas.seller.entity.Seller;
+import com.esuper.tbsas.seller.entity.Shop;
+import com.esuper.tbsas.seller.entity.ShopType;
 import com.jqd.framework.core.exception.DAOException;
 
 /**
