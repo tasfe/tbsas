@@ -1,0 +1,25 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="mysql.persistence"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<!-- update,create -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- 创建Entity Manager时搜索文件的类型，多个值之间用逗号分隔。class：.class类文件。hbm：Hibernate 
+				配置文件。默认两个都搜索。 value='class,hbm' -->
+			<property name="hibernate.archive.autodetection" value="class" />
+
+			<!-- 配置 hibernate 二级缓存 <property name="hibernate.cache.use_second_level_cache" 
+				value="true" /> <property name="hibernate.cache.use_query_cache" value="true" 
+				/> <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhCacheRegionFactory" 
+				/> <property name="hibernate.generate_statistics" value="true" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>
+

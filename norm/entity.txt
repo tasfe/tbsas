@@ -1,0 +1,26 @@
+1、对于实体的 id 字段一律使用 Long 类型，数据库长度为 20 位
+
+示例：
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(length = 20)
+public Long getId() {
+	return id;
+}
+
+2、对于金额的属性使用 Double 类型，保持两位小数点位，数据库长度为 8 位
+
+示例：
+@Column(length = 8, precision = 2)
+public Double getSalePrice() {
+	return salePrice;
+}
+
+3、对于数据库中外键一律使用 '属性名Id' 类似的命名，不使用 '属性名_Id' 的形式
+
+示例：
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "sellerId")
+public Seller getSeller() {
+	return seller;
+}
