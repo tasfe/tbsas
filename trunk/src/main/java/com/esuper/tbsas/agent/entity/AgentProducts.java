@@ -3,13 +3,20 @@
  */
 package com.esuper.tbsas.agent.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.esuper.tbsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
- * TODO
+ * 供应商产品关联关系
  * 
  * @author liaozc@digione.com
  * @date 2013-4-25
@@ -45,6 +52,9 @@ public class AgentProducts extends BaseEntity {
 	private String productNo;
 	
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(length = 20)
 	public Long getId() {
 		return id;
 	}
@@ -55,6 +65,8 @@ public class AgentProducts extends BaseEntity {
 	}
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "agentId")
 	public Agent getAgent() {
 		return agent;
 	}
@@ -65,6 +77,8 @@ public class AgentProducts extends BaseEntity {
 	}
 	
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "productId")
 	public Product getProduct() {
 		return product;
 	}
@@ -75,6 +89,7 @@ public class AgentProducts extends BaseEntity {
 	}
 	
 	
+	@Column(length = 8, precision = 2)
 	public Double getCostPrice() {
 		return costPrice;
 	}
@@ -85,6 +100,7 @@ public class AgentProducts extends BaseEntity {
 	}
 	
 	
+	@Column(length = 20)
 	public String getProductNo() {
 		return productNo;
 	}
