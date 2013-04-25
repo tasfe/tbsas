@@ -10,8 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.esuper.tbsas.AbstractTests;
-import com.esuper.tsas.buyer.dao.BuyerDAO;
-import com.esuper.tsas.buyer.entity.Buyer;
+import com.esuper.tbsas.buyer.entity.Buyer;
 import com.jqd.framework.core.exception.DAOException;
 
 /**

@@ -11,9 +11,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.esuper.tbsas.AbstractTests;
-import com.esuper.tsas.buyer.entity.Buyer;
-import com.esuper.tsas.logistics.dao.LogisticsAddressDAO;
-import com.esuper.tsas.logistics.entity.ConsigneeAddress;
+import com.esuper.tbsas.buyer.entity.Buyer;
+import com.esuper.tbsas.logistics.entity.ConsigneeAddress;
 import com.jqd.framework.core.exception.DAOException;
 
 /**
