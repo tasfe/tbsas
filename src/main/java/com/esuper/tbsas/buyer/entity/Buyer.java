@@ -16,8 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.esuper.tsas.logistics.entity.ConsigneeAddress;
-import com.esuper.tsas.sale.entity.Order;
+import com.esuper.tbsas.logistics.entity.ConsigneeAddress;
+import com.esuper.tbsas.sale.entity.Order;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

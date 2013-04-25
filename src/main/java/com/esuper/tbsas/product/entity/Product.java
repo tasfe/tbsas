@@ -16,7 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import com.esuper.tsas.agent.entity.Agent;
+import com.esuper.tbsas.agent.entity.Agent;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

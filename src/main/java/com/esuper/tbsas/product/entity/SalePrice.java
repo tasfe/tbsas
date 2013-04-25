@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esuper.tsas.seller.entity.ShopProducts;
+import com.esuper.tbsas.seller.entity.ShopProducts;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

@@ -17,9 +17,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import com.esuper.tsas.logistics.entity.ReturnAddress;
-import com.esuper.tsas.logistics.entity.ShipAddress;
-import com.esuper.tsas.product.entity.Product;
+import com.esuper.tbsas.logistics.entity.ReturnAddress;
+import com.esuper.tbsas.logistics.entity.ShipAddress;
+import com.esuper.tbsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

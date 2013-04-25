@@ -19,9 +19,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.esuper.tsas.buyer.entity.Buyer;
-import com.esuper.tsas.logistics.entity.ConsigneeAddress;
-import com.esuper.tsas.seller.entity.Shop;
+import com.esuper.tbsas.buyer.entity.Buyer;
+import com.esuper.tbsas.logistics.entity.ConsigneeAddress;
+import com.esuper.tbsas.seller.entity.Shop;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**

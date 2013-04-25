@@ -10,9 +10,9 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
-import com.esuper.tsas.commons.dao.AbstractBaseRepositorySupport;
-import com.esuper.tsas.logistics.dao.LogisticsAddressDAO;
-import com.esuper.tsas.logistics.entity.ConsigneeAddress;
+import com.esuper.tbsas.commons.dao.AbstractBaseRepositorySupport;
+import com.esuper.tbsas.logistics.dao.LogisticsAddressDAO;
+import com.esuper.tbsas.logistics.entity.ConsigneeAddress;
 import com.jqd.framework.core.exception.DAOException;
 
 /**

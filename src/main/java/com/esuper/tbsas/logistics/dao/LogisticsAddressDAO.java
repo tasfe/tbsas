@@ -5,7 +5,7 @@ package com.esuper.tbsas.logistics.dao;
 
 import java.util.List;
 
-import com.esuper.tsas.logistics.entity.ConsigneeAddress;
+import com.esuper.tbsas.logistics.entity.ConsigneeAddress;
 import com.jqd.framework.core.exception.DAOException;
 import com.jqd.framework.core.persistence.BaseRepository;
 

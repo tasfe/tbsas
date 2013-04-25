@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.esuper.tsas.agent.entity.Agent;
+import com.esuper.tbsas.agent.entity.Agent;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
