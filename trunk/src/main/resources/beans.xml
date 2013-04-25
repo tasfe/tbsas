@@ -14,7 +14,7 @@
 	<context:property-placeholder location="classpath:config-app.properties" />
 
 	<!-- spring的扫描机制配置 -->
-	<context:component-scan base-package="com.esuper.tsas" />
+	<context:component-scan base-package="com.esuper.tbsas" />
 
 	<!-- BoneCP datasource configuration -->
 	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
