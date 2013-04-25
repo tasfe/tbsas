@@ -1,7 +1,7 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas.logistics.dao;
+package com.esuper.tbsas.logistics.dao;
 
 import java.util.List;
 
@@ -10,8 +10,9 @@ import javax.annotation.Resource;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.esuper.tsas.AbstractTests;
+import com.esuper.tbsas.AbstractTests;
 import com.esuper.tsas.buyer.entity.Buyer;
+import com.esuper.tsas.logistics.dao.LogisticsAddressDAO;
 import com.esuper.tsas.logistics.entity.ConsigneeAddress;
 import com.jqd.framework.core.exception.DAOException;
 

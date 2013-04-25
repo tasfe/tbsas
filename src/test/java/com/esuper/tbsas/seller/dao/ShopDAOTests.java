@@ -1,13 +1,14 @@
 /*
  * http://www.digione.cn
  */
-package com.esuper.tsas.seller.dao;
+package com.esuper.tbsas.seller.dao;
 
 import javax.annotation.Resource;
 
 import org.junit.Test;
 
-import com.esuper.tsas.AbstractTests;
+import com.esuper.tbsas.AbstractTests;
+import com.esuper.tsas.seller.dao.ShopDAO;
 import com.esuper.tsas.seller.entity.Seller;
 import com.esuper.tsas.seller.entity.Shop;
 import com.esuper.tsas.seller.entity.ShopType;
