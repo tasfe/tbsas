@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 通过spring命名空间导入属性文件配置 -->
+	<context:property-placeholder location="classpath:config-app.properties" />
+
+	<!-- spring的扫描机制配置 -->
+	<context:component-scan base-package="com.esuper.tsas" />
+
+	<!-- BoneCP datasource configuration -->
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 设置分区个数。这个参数默认是1，建议3-4。当拥有充足的短期线程的时候，这个参数设置越大性能越好。 当超过一定阀值时，连接池的维护工作就可能对性能照成一定负面影响（仅当分区上的connection使用耗尽时） -->
+		<property name="partitionCount" value="${bonecp.partitionCount}" />
+		<!-- 设置每个分区含有connection最小个数。这个参数默认为0 -->
+		<property name="minConnectionsPerPartition" value="${bonecp.minConnectionsPerPartition}" />
+		<!-- 设置每个分区含有connection最大个数。这个参数默认为2。如果小于2，BoneCP将设置为50 -->
+		<property name="maxConnectionsPerPartition" value="${bonecp.maxConnectionsPerPartition}" />
+		<!-- 设置分区中的connection增长数量。这个参数默认为1。当每个分区中的connection大约快用完时，BoneCP动态批量创建connection -->
+		<property name="acquireIncrement" value="${bonecp.acquireIncrement}" />
+		<!-- 设置测试connection的间隔时间，单位：分钟。设置为0该功能失效 -->
+		<property name="idleConnectionTestPeriodInMinutes" value="60" />
+		<!-- 设置connection的空闲存活时间，单位：分钟。设置为0该功能失效 -->
+		<property name="idleMaxAgeInMinutes" value="240" />
+		<!-- 设置statement缓存个数。这个参数默认为0 -->
+		<property name="statementsCacheSize" value="100" />
+		<property name="releaseHelperThreads" value="3" />
+	</bean>
+
+
+	<!-- JPA EntityManager -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="persistenceUnitName" value="mysql.persistence" />
+	</bean>
+
+
+	<!-- ====================== spring 声明式事务配置 ====================== -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- 使用 annotation 声明事务管理 -->
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+</beans>
