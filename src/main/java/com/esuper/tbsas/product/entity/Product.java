@@ -3,9 +3,6 @@
  */
 package com.esuper.tbsas.product.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import com.esuper.tbsas.agent.entity.Agent;
@@ -74,11 +70,6 @@ public class Product extends BaseEntity {
 	 * 每产品都会存在一个主要的供应商
 	 */
 	private Agent defaultAgent;
-	
-	/**
-	 * 一个产品，可以由多个供应商供货
-	 */
-	private Set<Agent> agents = new HashSet<Agent>();
 	
 	
 	@Id
@@ -180,17 +171,6 @@ public class Product extends BaseEntity {
 	
 	public void setDefaultAgent(Agent defaultAgent) {
 		this.defaultAgent = defaultAgent;
-	}
-	
-	
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "products")
-	public Set<Agent> getAgents() {
-		return agents;
-	}
-	
-	
-	public void setAgents(Set<Agent> agents) {
-		this.agents = agents;
 	}
 	
 	
