@@ -3,9 +3,6 @@
  */
 package com.esuper.tbsas.agent.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,13 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import com.esuper.tbsas.logistics.entity.ReturnAddress;
 import com.esuper.tbsas.logistics.entity.ShipAddress;
-import com.esuper.tbsas.product.entity.Product;
 import com.jqd.framework.core.entity.BaseEntity;
 
 /**
@@ -42,11 +36,6 @@ public class Agent extends BaseEntity {
 	 * 代理商名称
 	 */
 	private String name;
-	
-	/**
-	 * 代理商所有的产品
-	 */
-	private Set<Product> products = new HashSet<Product>();
 	
 	/**
 	 * 发货地址
@@ -80,18 +69,6 @@ public class Agent extends BaseEntity {
 	
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "agent_product", joinColumns = @JoinColumn(name = "agentId"), inverseJoinColumns = @JoinColumn(name = "productId"))
-	public Set<Product> getProducts() {
-		return products;
-	}
-	
-	
-	public void setProducts(Set<Product> products) {
-		this.products = products;
 	}
 	
 	
