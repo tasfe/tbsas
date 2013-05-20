@@ -14,7 +14,7 @@ function findInfo() {
 		}
 		else {
 			nextPage();
-			findInfo();
+			return findInfo();
 		}
 	});
 	
