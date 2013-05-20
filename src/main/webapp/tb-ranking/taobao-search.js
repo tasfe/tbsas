@@ -2,6 +2,7 @@
 var sellIds = ["lzc3144", "s小人物"];
 
 function hasInfo() {
+	alert('call hasInfo...');
 	var info = null;
 	
 	$(".list-item, .item").each(function() {
