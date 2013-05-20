@@ -9,7 +9,7 @@ function hasInfo() {
 		var seller = $(this).find(".seller").children("a").text();
 		if(sellIds.contains(seller)) {
 			var at = $(this).find(".summary").children("a");
-			alert(at.attr("href"););
+			alert(at.attr("href"));
 			info = $(this);
 		}
 	});
