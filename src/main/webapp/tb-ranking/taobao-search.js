@@ -17,7 +17,7 @@ function hasInfo() {
 	return info;
 }
 
-
+alert('load js...');
 
 Array.prototype.contains = function(e) {
 	for(i = 0; i < this.length; i++) {
