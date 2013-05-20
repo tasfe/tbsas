@@ -1,8 +1,8 @@
 ﻿// 卖家旺旺ID
 var sellIds = ["lzc3144", "s小人物"];
 
-function hasInfo() {
-	alert('call hasInfo...');
+
+function findInfo() {
 	var info = null;
 	
 	$(".list-item, .item").each(function() {
@@ -12,12 +12,20 @@ function hasInfo() {
 			alert(at.attr("href"));
 			info = $(this);
 		}
+		else {
+			nextPage();
+			findInfo();
+		}
 	});
 	
 	return info;
 }
 
-alert('load js...');
+
+function nextPage() {
+	$(".page-siblings").children("a")[0].click();
+}
+
 
 Array.prototype.contains = function(e) {
 	for(i = 0; i < this.length; i++) {
