@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>刷单记录列表</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../js/themes/gray/easyui.css">  
+<link rel="stylesheet" type="text/css" href="../js/themes/icon.css">  
+<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../js/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/json2.js"></script>
+
+<script type="text/javascript">
+var platformSite = '';
+var operationTimeBegin = '';
+var operationTimeEnd = '';
+
+
+$(document).ready(function(e){
+	$('#shamOrderList').treegrid({
+		url:'/statistics/dccustomerstatistics/0/registerUserStatistics',
+		method:'post',
+		title:'刷单记录',
+		height:'500',
+		toolbar:'#dataGridToolBar',
+		animate:true,
+		treeField:'treeField',
+		remoteSort: false,
+		idField:'id',
+		columns:[[
+			{field:'treeField',title:'账号',width:100},
+			{field:'registerUserCount',title:'日期',width:50},    
+			{field:'registerUserRate',title:'商品编号',width:50},
+			{field:'validUserCount',title:'店铺',width:50},
+			{field:'validUserRate',title:'来源',width:50},
+			{field:'activeRate',title:'联系人QQ',width:100},
+			{field:'activeRate',title:'QT编号',width:100},
+			{field:'activeRate',title:'收货地址',width:100},
+			{field:'activeRate',title:'操作人',width:100},
+			{field:'activeRate',title:'小号信誉',width:100},
+			{field:'activeRate',title:'备注',width:100}
+		]],
+		loadFilter : function(data){
+			return data;
+		},
+		onBeforeLoad:function(row,param){
+			if(row != undefined && param != null){
+				param['listCity'] = true;
+				param['provinceId'] = row.id;
+				param['platformSite'] = platformSite;
+				param['operationTimeBegin'] = operationTimeBegin;
+				param['operationTimeEnd'] = operationTimeEnd;
+				$(this).treegrid("options").loadFilter=function(data){
+					return dataMake(data);
+				}
+			}
+		}
+	});
+	
+	//提交筛选表单
+	$("#search").click(function(){
+		$("#menberForm").form('submit',{
+			url:'/statistics/dccustomerstatistics/0/registerUserStatistics',
+			success:function(data){
+				var td = $.parseJSON(data);
+				$('#memberStatistics').treegrid('loadData', td);
+				platformSite = $("input[name='platformSite']").val();
+				operationTimeBegin = $("input[name='operationTimeBegin']").val();
+				operationTimeEnd = $("input[name='operationTimeEnd']").val();
+			}
+		});
+	});
+	
+	$("#export").click(function(){
+		var json = $('#memberStatistics').treegrid('getData');
+		json = json2excel(json);
+		$("#exportJson").val(JSON.stringify(json));
+		$("#exportForm").form({url:TERMINAL_URL+'/statistics/dccustomerstatistics/0/registerUserStatisticsExport'});
+		$("#exportForm").submit();
+	});
+});
+</script>
+
+</head>
+<body>
+<div style="padding:15px;">
+	<div id="dataGridToolBar" style="padding:5px;">
+		<form id="menberForm" method="post">
+			店铺列表：
+			<select id="platformSite" class="easyui-combobox" name="platformSite" style="width:100px;">  
+				<option value="">请选择</option>
+				<option value="411">lzc3144</option>  
+				<option value="412">s小人物</option>  
+			</select>&nbsp;&nbsp;&nbsp;
+			统计时间：
+			<input id="operationTimeBegin" name="operationTimeBegin" type="text" class="easyui-datebox"></input> 到 
+			<input id="operationTimeEnd" name="operationTimeEnd" type="text" class="easyui-datebox" ></input>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)" id="search" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:void(0)" id="export" class="easyui-linkbutton" data-options="iconCls:'icon-save'">导出</a>
+		</form>
+	</div>
+	<table id="shamOrderList"></table>
+	<form method="post" id="exportForm" name="exportForm" >
+		<input id="exportJson" name="exportJson" type="hidden"/>
+	</form>
+</div>
+</body>
+</html>

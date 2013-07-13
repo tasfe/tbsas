@@ -1,0 +1,12 @@
+@charset "utf-8";
+a{ color:#4d4d4d;}
+a:hover{ color:#000;}
+.menuBody{ background-color:#fbfbfb; height:100%;}
+.menu{ height:100%; border-right:1px solid #dfdfdf;}
+.menu_h1{ font-size:14px; font-weight:bold; padding-left:15px; line-height:36px; border-bottom:1px solid #dfdfdf; color:#4d4d4d; background-color:#eeeded;}
+.menu_box{ padding:10px 15px;}
+.menu_box li{ line-height:24px; white-space:nowrap;}
+.menu_box li a,.menu_box li span{display:inline-block; cursor:pointer; line-height:24px;}
+.plus{ width:16px; height:16px; background:url(../images/ico.png) -16px center no-repeat; vertical-align:middle;}
+.minus{ width:16px; height:16px; background:url(../images/ico.png) 0 center no-repeat; vertical-align:middle;}
+.sub_menu{ padding-left:20px;}
