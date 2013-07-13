@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<link href="../css/base.css" rel="stylesheet" type="text/css" />
+<link href="../css/menu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$(".plus").live("click",function(){
+		$(this).siblings("ul").slideDown(300);
+		$(this).removeClass().addClass("minus");
+	});
+	$(".minus").live("click",function(){
+		$(this).siblings("ul").slideUp(300);
+		$(this).removeClass().addClass("plus");
+	});
+	$(".menu_box a").live("click",function(){
+		if($(this).siblings("ul").css("display") == "none") {
+			$(this).siblings("ul").slideDown(300);
+			$(this).siblings("span").removeClass().addClass("minus");
+		} else {
+			$(this).siblings("ul").slideUp(300);
+			$(this).siblings("span").removeClass().addClass("plus");
+		}
+	});
+});
+</script>
+</head>
+
+<body class="menuBody">
+<div class="menu">
+	<h1 class="menu_h1">淘宝店铺管理系统</h1>
+	<ul class="menu_box">
+		<li>
+			<span class="minus"></span>
+			<a href="#"><strong>刷单管理</strong></a>
+			<ul class="sub_menu">
+				<li><a href="../sham/shamOrderList.html" target="content">刷单记录</a></li>
+				<li><a href="../memberActs/memberStatistics.html" target="content">小号管理</a></li>
+			</ul>
+		</li>
+		<li>
+			<span class="minus"></span>
+			<a href="#"><strong>产品销量</strong></a>
+			<ul class="sub_menu">
+				<li><a href="../productSale/totalSaleCount.html" target="content">总销量统计</a></li>
+				<li><a href="../productSale/priceArea.html" target="content">产品价格区间</a></li>
+				<li><a href="../productSale/brandSale.html" target="content">品牌销量统计</a></li>
+				<li><a href="../productSale/brandTypeSale.html" target="content">型号销量统计</a></li>
+				<li><a href="../productSale/provideSale.html" target="content">供应商销量统计</a></li>
+				<li><a href="../productSale/businessmanSaleCount.html" target="content">零售商销量统计</a></li>
+				<li><a href="../productSale/restockManage.html" target="content">进销存统计</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</body>
+</html>
